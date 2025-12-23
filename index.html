@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Drawing App</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/OZ-00MS/source/refs/heads/main/space%20a/icon.jpg" type="image/png" />
+
+
+  <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background:
+    radial-gradient(circle at top left, #38bdf8, transparent 40%),
+    radial-gradient(circle at bottom right, #22c55e, transparent 40%),
+    linear-gradient(135deg, #020617, #020617);
+  overflow: hidden;
+}
+
+.app {
+  width: 96%;
+  height: 96%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  height: 100%;
+  width: 99%;
+}
+
+.tools {
+  width: 150px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  color: #e5e7eb;
+  align-items: center; /* center all items horizontally */
+}
+
+.tools label {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+#color {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  padding: 0;
+  background: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  align-self: center;
+}
+
+#color::-webkit-color-swatch-wrapper { padding: 0; }
+#color::-webkit-color-swatch { border: none; border-radius: 50%; }
+#color::-moz-color-swatch { border: none; border-radius: 50%; }
+
+#size {
+  width: 80%;
+  appearance: none;
+  height: 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+#size::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #7dd3fc;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(125, 211, 252, 0.8);
+}
+
+#size::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #7dd3fc;
+  cursor: pointer;
+}
+
+
+button {
+  width: 80%;
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  color: #e5e7eb;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
+}
+
+#clear { background: rgba(239, 68, 68, 0.35); border-color: rgba(239, 68, 68, 0.6); }
+#save { background: rgba(34, 197, 94, 0.35); border-color: rgba(34, 197, 94, 0.6); color: #ecfeff; }
+
+
+canvas {
+  align-self: center;
+  margin: auto;
+  width: calc(90% - 32px);
+  height: calc(99% - 32px);
+  border-radius: 16px;
+  background: white;
+  cursor: crosshair;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 30px 60px rgba(0, 0, 0, 0.45);
+}
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+  <div class="content">
+
+    <div class="tools">
+      <label>Color</label>
+      <input type="color" id="color" value="#000000">
+
+      <label>Brush Size</label>
+      <input type="range" id="size" min="1" max="30" value="5">
+
+      <button id="brush"> Brush</button>
+      <button id="eraser"> Eraser</button>
+      <button id="undo"> Undo</button>
+      <button id="clear"> Clear</button>
+      <button id="save"> Save</button>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
