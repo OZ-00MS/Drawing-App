@@ -1,0 +1,24 @@
+{
+  "name": "draw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OZ-00MS/Drawing-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/OZ-00MS/Drawing-App/issues"
+  },
+  "homepage": "https://github.com/OZ-00MS/Drawing-App#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

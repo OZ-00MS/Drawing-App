@@ -80,15 +80,27 @@ function undo() {
 
 /* Clear */
 clearBtn.onclick = () => {
-  if (!confirm("Clear the canvas?")) return;
-  saveState();
+  saveState(); // optional: save for undo
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 };
 
-/* Save */
+/* Save locally + backend */
 saveBtn.onclick = () => {
+  const imageData = canvas.toDataURL("image/png");
+
+  // Local download
   const link = document.createElement("a");
   link.download = "drawing.png";
-  link.href = canvas.toDataURL("image/png");
+  link.href = imageData;
   link.click();
+
+  // Send to backend
+  fetch('/save-drawing', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ imageData, name: 'my_drawing' })
+  })
+  .then(res => res.json())
+  .then(data => alert(data.message))
+  .catch(err => console.error(err));
 };
