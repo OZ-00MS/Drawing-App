@@ -3,6 +3,7 @@
 A modern **desktop drawing app** built with **HTML, CSS, and JavaScript**, featuring a sleek **glassmorphism UI**, custom brushes, and simple controls. Designed for Windows PCs.
 
 ---
+<img width="1364" height="615" alt="Screenshot 2025-12-23 231948" src="https://github.com/user-attachments/assets/caba91da-53a8-41f9-8216-6bc318ffd55f" />
 
 ## Features
 
@@ -21,5 +22,7 @@ A modern **desktop drawing app** built with **HTML, CSS, and JavaScript**, featu
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/pc-drawing-app.git
+https://github.com/OZ-00MS/Drawing-App.git
+
+
 
